@@ -80,15 +80,15 @@ public class Module1 {
 
         // Determine all number is prime number (prim_number_cal)
 
-        System.out.print("Enter the number you want to check prime (int): ");
-        int prime_number_input = scanner.nextInt();
-        List<Integer> prime_number_cal = primeNumberFunction(prime_number_input);
-        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
+//        System.out.print("Enter the number you want to check prime (int): ");
+//        int prime_number_input = scanner.nextInt();
+//        List<Integer> prime_number_cal = primeNumberFunction(prime_number_input);
+//        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
          // Determine the (prime_factorization_cal)
-//        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
-//        int prime_factorization_input = scanner.nextInt();
-//        System.out.println(primeFactorizationFunction(prime_factorization_input));
+        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
+        int prime_factorization_input = scanner.nextInt();
+        System.out.println(primeFactorizationFunction(prime_factorization_input));
 
 
 //         Determine if the first number is divisible by the second (divisibility_for_number_cal)
