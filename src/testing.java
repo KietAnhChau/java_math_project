@@ -5,13 +5,13 @@ import java.util.stream.IntStream;
 // THis code is just for testing before submit to the main one
 public class testing {
     static List<Integer> primeNumber (int number_range) {
-        IntStream intStream1 = IntStream.range(2, number_range);
-        int[] numbers = intStream1.toArray();
-
+        IntStream intStream1 = IntStream.range(2, number_range + 1);
         List<Integer> lists = new ArrayList<Integer>();
-        for (int number : numbers) {
+
+        for (int number : intStream1.toArray()) {
             lists.add(number);
         }
+
 
         for (int i = 0; i < lists.size() ; i++) {
             int number_test = lists.get(i) * lists.get(i);
@@ -32,9 +32,12 @@ public class testing {
 //        System.out.print("Enter the number you want to determine the prime factorization (int): ");
 //        double prime_factorization_input = scanner.nextDouble();
 
-        double prime_factorization_input = 28050;
+        double prime_factorization_input = 275625;
+        int prime_foot_hold = 2000;
 
-        List<Integer> prime_number_lists = primeNumber((int) prime_factorization_input);
+        List<Integer> prime_number_lists = primeNumber(prime_foot_hold);
+        System.out.println(" the other is " + prime_number_lists);
+
         List<Integer> prime_factorization_lists = new ArrayList<Integer>();
 
         double prime_factorization_cal = prime_factorization_input;

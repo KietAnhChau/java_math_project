@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Module1 {
@@ -8,20 +9,16 @@ public class Module1 {
      * @return A prime number list with ArrayList type
      */
     static List<Integer> primeNumberFunction (int number_input) {
-        IntStream intStream1 = IntStream.range(2, number_input);
-        int[] numbers = intStream1.toArray();
+        IntStream intStream = IntStream.range(2, number_input);
+        List<Integer> lists = IntStream.of(intStream.toArray()).boxed().collect(Collectors.toCollection(ArrayList::new));
 
-        List<Integer> lists = new ArrayList<Integer>();
-        for (int number : numbers) {
-            lists.add(number);
-        }
-
-        for (int i = 0; i < lists.size() ; i++) {
-            int number_test = lists.get(i) * lists.get(i);
+        for (int i = 0; i < lists.size() - 1 ; i++) {
+            int number_test = lists.get(i) * 2;
 
             while (number_test <= lists.get((lists.size() -1))) {
                 if (lists.contains(number_test)) {
-                    lists.remove((Integer) number_test);
+                    //lists.remove(Integer.valueOf(number_test));
+                    lists.removeAll(List.of(number_test));
                 }
                 number_test += lists.get(i);
             }
@@ -83,15 +80,15 @@ public class Module1 {
 
         // Determine all number is prime number (prim_number_cal)
 
-//        System.out.print("Enter the number you want to check prime (int): ");
-//        int prime_number_input = scanner.nextByte();
-//        List<Integer> prime_number_cal = primeNumberFunction(prime_number_input);
-//        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
+        System.out.print("Enter the number you want to check prime (int): ");
+        int prime_number_input = scanner.nextInt();
+        List<Integer> prime_number_cal = primeNumberFunction(prime_number_input);
+        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
          // Determine the (prime_factorization_cal)
-        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
-        int prime_factorization_input = scanner.nextInt();
-        System.out.println(primeFactorizationFunction(prime_factorization_input));
+//        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
+//        int prime_factorization_input = scanner.nextInt();
+//        System.out.println(primeFactorizationFunction(prime_factorization_input));
 
 
 //         Determine if the first number is divisible by the second (divisibility_for_number_cal)

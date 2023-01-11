@@ -19,3 +19,7 @@ This is project math, the content mostly taking from college, Please don't
 
 ## Java library (may be not even use)
 -   Javajx: https://openjfx.io/
+
+## Bug 
+-   primeNumberFunction gonna break if enter 275625
+-   
