@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class Main {
+public class Module1 {
     static List<Integer> primeNumber (int number_range) {
         IntStream intStream1 = IntStream.range(2, number_range);
         int[] numbers = intStream1.toArray();
