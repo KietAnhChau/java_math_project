@@ -2,14 +2,20 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 public class Module1 {
-    static List<Integer> primeNumber (int number_range) {
-        IntStream intStream1 = IntStream.range(2, number_range);
-        int[] numbers = intStream1.toArray();
-        List<Integer> lists = new ArrayList<Integer>();
 
+    /**
+     * @param number_input Take an int and return its own prime number
+     * @return A prime number list with ArrayList type
+     */
+    static List<Integer> primeNumberFunction (int number_input) {
+        IntStream intStream1 = IntStream.range(2, number_input);
+        int[] numbers = intStream1.toArray();
+
+        List<Integer> lists = new ArrayList<Integer>();
         for (int number : numbers) {
             lists.add(number);
         }
+
         for (int i = 0; i < lists.size() ; i++) {
             int number_test = lists.get(i) * lists.get(i);
 
@@ -22,10 +28,32 @@ public class Module1 {
         }
         return lists;
     }
+
+    /**
+     * @param prime_factorization_input Need to be double but can be int IDK im suck at code
+     * @return A prime Factorization Number list with ArrayList type
+     */
+    static List<Integer> primeFactorizationFunction (double prime_factorization_input){ // Need optimize
+        List<Integer> prime_number_lists = primeNumberFunction((int) prime_factorization_input);
+        List<Integer> prime_factorization_lists = new ArrayList<Integer>();
+        double prime_factorization_cal = prime_factorization_input;
+
+        for (int i = 0; prime_factorization_cal > 1.0 ; i++ ) {
+            prime_factorization_cal = prime_factorization_input / prime_number_lists.get(i);
+
+            while (prime_factorization_cal % 1 == 0) {
+                prime_factorization_lists.add(prime_number_lists.get(i));
+                prime_factorization_input = prime_factorization_cal;
+                prime_factorization_cal = prime_factorization_input / prime_number_lists.get(i);
+            }
+        }
+        return prime_factorization_lists;
+    }
+
     public static void main(String[] args) {
         // Module 1 - Number theory
 
-        //Prepare
+        // Prepare
         Scanner scanner = new Scanner(System.in);
 
         // All theory in module 1
@@ -54,17 +82,20 @@ public class Module1 {
         // Caculate thing
 
         // Determine all number is prime number (prim_number_cal)
-        System.out.print("Enter the number you want to check prime (int): ");
-        int prime_number_input = scanner.nextByte();
-        List<Integer> prime_number_cal = primeNumber(prime_number_input);
-        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
-        // Determine the (prime_factorization_cal)
-        //System.out.print("Enter the number you want to determine the prime factorization (int): ");
-        //int prime_factorization_input = scanner.nextInt();
+//        System.out.print("Enter the number you want to check prime (int): ");
+//        int prime_number_input = scanner.nextByte();
+//        List<Integer> prime_number_cal = primeNumberFunction(prime_number_input);
+//        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
-        // Determine if the first number is divisible by the second (divisibility_for_number_cal)
-        //System.out.print("Enter the number you want to determine if the first number is divisible by the second (int): ");
-        //int divisibility_for_number_input = scanner.nextInt();
+         // Determine the (prime_factorization_cal)
+        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
+        int prime_factorization_input = scanner.nextInt();
+        System.out.println(primeFactorizationFunction(prime_factorization_input));
+
+
+//         Determine if the first number is divisible by the second (divisibility_for_number_cal)
+//         System.out.print("Enter the number you want to determine if the first number is divisible by the second (int): ");
+//         int divisibility_for_number_input = scanner.nextInt();
     }
 }
