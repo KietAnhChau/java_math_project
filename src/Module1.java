@@ -47,6 +47,27 @@ public class Module1 {
         return prime_factorization_lists;
     }
 
+    /**
+     * @param replace_divisibility_input Need String with x along with number
+     * @param divisible_input Need integer to divisible
+     * @return A prime Factorization Number list with ArrayList type
+     */
+    static List<Integer> replaceDivisibilityFunction (String replace_divisibility_input, int divisible_input){
+        List<Integer> return_holder = new ArrayList<Integer>();
+        int[] replace_container_lists = {0,1,2,3,4,5,6,7,8,9};
+        String string_test;
+
+        for (int replace_container: replace_container_lists) {
+            string_test = replace_divisibility_input.replace("x", Integer.toString(replace_container)) ;
+
+            if (Double.parseDouble(string_test) / divisible_input % 1 == 0){
+                return_holder.add(replace_container);
+            }
+        }
+
+        return return_holder;
+    }
+
     public static void main(String[] args) {
         // Module 1 - Number theory
 
@@ -78,21 +99,32 @@ public class Module1 {
 
         // Caculate thing
 
-        // Determine all number is prime number (prim_number_cal)
-
+        // Determine all number is prime number (prime_number_input)
 //        System.out.print("Enter the number you want to check prime (int): ");
 //        int prime_number_input = scanner.nextInt();
 //        List<Integer> prime_number_cal = primeNumberFunction(prime_number_input);
 //        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
-         // Determine the (prime_factorization_cal)
-        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
-        int prime_factorization_input = scanner.nextInt();
-        System.out.println(primeFactorizationFunction(prime_factorization_input));
+         // Determine the (prime_factorization_input)
+//        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
+//        int prime_factorization_input = scanner.nextInt();
+//        System.out.println(primeFactorizationFunction(prime_factorization_input));
 
 
-//         Determine if the first number is divisible by the second (divisibility_for_number_cal)
+//         Determine if the first number is divisible by the second (divisibility_for_number_input)
 //         System.out.print("Enter the number you want to determine if the first number is divisible by the second (int): ");
 //         int divisibility_for_number_input = scanner.nextInt();
+
+        // Determine all possible digit replacements for 'x' so that the first number is divisible by the second. (replace_divisibility_input)
+        System.out.print("Enter the number you want to find all possible digits replacements (ex: 764x88): ");
+        String replace_divisibility_input = scanner.nextLine();
+        System.out.print("Enter the number you want it to divisible (ex: 6): ");
+        int divisible_input = scanner.nextInt();
+        System.out.println(replace_divisibility_input + " by " + divisible_input + ", x ∈ "
+                + replaceDivisibilityFunction(replace_divisibility_input, divisible_input));
+
+
+
+
     }
 }

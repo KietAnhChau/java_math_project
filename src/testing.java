@@ -31,28 +31,25 @@ public class testing {
 
 //        System.out.print("Enter the number you want to determine the prime factorization (int): ");
 //        double prime_factorization_input = scanner.nextDouble();
+        //System.out.print("Enter the number you want to find all possible digits replacements (string): ");
+        //String replace_divisibility_for_number_cal = scanner.nextLine();
 
-        double prime_factorization_input = 275625;
-        int prime_foot_hold = 2000;
+        String replace_divisibility_for_number_input = "9574886x"; // 764x88
+        double divisible_input = 4; // 6
 
-        List<Integer> prime_number_lists = primeNumber(prime_foot_hold);
-        System.out.println(" the other is " + prime_number_lists);
+        List<Integer> holder = new ArrayList<Integer>();
+        int[] replace_container_lists = {0,1,2,3,4,5,6,7,8,9};
+        String test;
 
-        List<Integer> prime_factorization_lists = new ArrayList<Integer>();
+        for (int replace_container: replace_container_lists) {
+            test = replace_divisibility_for_number_input.replace("x", Integer.toString(replace_container)) ;
+            System.out.println(test);
 
-        double prime_factorization_cal = prime_factorization_input;
-
-        for (int i = 0; prime_factorization_cal > 1.0 ; i++ ) {
-            prime_factorization_cal = prime_factorization_input / prime_number_lists.get(i);
-
-            while (prime_factorization_cal % 1 == 0) {
-                System.out.println(prime_factorization_cal + " the other is " + prime_number_lists.get(i));
-                prime_factorization_lists.add(prime_number_lists.get(i));
-
-                prime_factorization_input = prime_factorization_cal;
-                prime_factorization_cal = prime_factorization_input / prime_number_lists.get(i);
+            if (Double.parseDouble(test) / divisible_input % 1 == 0){
+                holder.add(replace_container);
             }
         }
-        System.out.println(prime_factorization_lists);
+        System.out.println(holder);
+
     }
 }
