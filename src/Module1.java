@@ -1,23 +1,23 @@
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class Module1 {
 
     /**
-     * @param number_input Take an int and return its own prime number
+     * @param number_input Take a long and return its own prime number
      * @return A prime number list with ArrayList type
      */
-    static List<Integer> primeNumberFunction (int number_input) {
-        IntStream intStream = IntStream.range(2, number_input);
-        List<Integer> lists = IntStream.of(intStream.toArray()).boxed().collect(Collectors.toCollection(ArrayList::new));
+    static List<Long> primeNumberFunction (long number_input) {
+        LongStream longStream = LongStream.range(2, number_input);
+        List<Long> lists = LongStream.of(longStream.toArray()).boxed().collect(Collectors.toCollection(ArrayList::new));
 
         for (int i = 0; i < lists.size() - 1 ; i++) {
-            int number_test = lists.get(i) * 2;
+            long number_test = lists.get(i) * 2;
 
             while (number_test <= lists.get((lists.size() -1))) {
                 if (lists.contains(number_test)) {
-                    //lists.remove(Integer.valueOf(number_test));
                     lists.removeAll(List.of(number_test));
                 }
                 number_test += lists.get(i);
@@ -30,9 +30,9 @@ public class Module1 {
      * @param prime_factorization_input Need to be double but can be int IDK im suck at code
      * @return A prime Factorization Number list with ArrayList type
      */
-    static List<Integer> primeFactorizationFunction (double prime_factorization_input){ // Need optimize
-        List<Integer> prime_number_lists = primeNumberFunction((int) prime_factorization_input);
-        List<Integer> prime_factorization_lists = new ArrayList<Integer>();
+    static List<Long> primeFactorizationFunction (double prime_factorization_input){ // Need optimize
+        List<Long> prime_number_lists = primeNumberFunction((int) prime_factorization_input);
+        List<Long> prime_factorization_lists = new ArrayList<Long>();
         double prime_factorization_cal = prime_factorization_input;
 
         for (int i = 0; prime_factorization_cal > 1.0 ; i++ ) {
@@ -81,6 +81,8 @@ public class Module1 {
         String the_fundamental_theorem_of_arithmetic = "Every integer greater than 1 is either prime or can be expressed as a" +
                 " product of primes in a unique order in which the factors occur";
         String prime_factorization_theory = "Prime factorization of a number is a product of primes with the same value. ";
+        String greatest_common_factor_theory = "GCF is the product of all the factors common to both (or to all) numbers.  ";
+        String least_common_multiple = "LCM is the smallest number that contains both (or all) numbers as factors.  ";
 
         // To Define and Apply Divisibility Tests
         String divisibility_rule_for_two = "All even numbers are divisible by 2 (the number n finishes at 0, 2, 4, ,6 8)";
@@ -100,31 +102,34 @@ public class Module1 {
         // Caculate thing
 
         // Determine all number is prime number (prime_number_input)
-//        System.out.print("Enter the number you want to check prime (int): ");
-//        int prime_number_input = scanner.nextInt();
-//        List<Integer> prime_number_cal = primeNumberFunction(prime_number_input);
-//        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
+        System.out.print("Enter the number you want to check prime (int): ");
+        long prime_number_input = scanner.nextLong();
+        List<Long> prime_number_cal = primeNumberFunction(prime_number_input);
+        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
-         // Determine the (prime_factorization_input)
+        // Determine the (prime_factorization_input)
 //        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
 //        int prime_factorization_input = scanner.nextInt();
 //        System.out.println(primeFactorizationFunction(prime_factorization_input));
 
 
-//         Determine if the first number is divisible by the second (divisibility_for_number_input)
+        // Determine if the first number is divisible by the second (divisibility_for_number_input)
 //         System.out.print("Enter the number you want to determine if the first number is divisible by the second (int): ");
 //         int divisibility_for_number_input = scanner.nextInt();
 
         // Determine all possible digit replacements for 'x' so that the first number is divisible by the second. (replace_divisibility_input)
-        System.out.print("Enter the number you want to find all possible digits replacements (ex: 764x88): ");
-        String replace_divisibility_input = scanner.nextLine();
-        System.out.print("Enter the number you want it to divisible (ex: 6): ");
-        int divisible_input = scanner.nextInt();
-        System.out.println(replace_divisibility_input + " by " + divisible_input + ", x ∈ "
-                + replaceDivisibilityFunction(replace_divisibility_input, divisible_input));
+//        System.out.print("Enter the number you want to find all possible digits replacements (ex: 764x88): ");
+//        String replace_divisibility_input = scanner.nextLine();
+//        System.out.print("Enter the number you want it to divisible (ex: 6): ");
+//        int divisible_input = scanner.nextInt();
+//        System.out.println(replace_divisibility_input + " by " + divisible_input + ", x ∈ "
+//                + replaceDivisibilityFunction(replace_divisibility_input, divisible_input));
 
-
-
+        // Determine Greatest Common Factor, GCF (greatest_common_factor_input)
+//        System.out.print("Enter the list of number you want to determine Greatest Common Factor, GCF: ");
+//        String testing = scanner.nextLine();
+//        String[] currencies = testing.split(" ");
+//        System.out.println(Arrays.toString(currencies));
 
     }
 }
