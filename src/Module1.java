@@ -68,6 +68,25 @@ public class Module1 {
         return return_holder;
     }
 
+    static ArrayList<ArrayList<Integer>> squareAndMultiplyFunction (int number, int power, int mod){
+        long holder = number;
+        ArrayList<ArrayList<Integer> > list_return = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, (int)holder, (int)holder)); list_return.add(list);
+
+        for (int i = 2; i < power; i *= 2){
+            if (!(Math.pow(number, i) < mod)) {
+                long number_pow = (long)(Math.pow(holder, 2));
+                holder = (long) (number_pow - (mod * Math.floor((double)number_pow / mod)));
+                list = new ArrayList<>(Arrays.asList(i, (int)number_pow, (int)holder)); list_return.add(list);
+            }else {
+                list = new ArrayList<>(Arrays.asList(i, (int)Math.pow(number, i), (int)holder)); list_return.add(list);
+            }
+        }
+
+        return list_return;
+    }
+
+
     public static void main(String[] args) {
         // Module 1 - Number theory
 
@@ -102,10 +121,10 @@ public class Module1 {
         // Caculate thing
 
         // Determine all number is prime number (prime_number_input)
-        System.out.print("Enter the number you want to check prime (int): ");
-        long prime_number_input = scanner.nextLong();
-        List<Long> prime_number_cal = primeNumberFunction(prime_number_input);
-        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
+//        System.out.print("Enter the number you want to check prime (int): ");
+//        long prime_number_input = scanner.nextLong();
+//        List<Long> prime_number_cal = primeNumberFunction(prime_number_input);
+//        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
         // Determine the (prime_factorization_input)
 //        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
@@ -130,6 +149,20 @@ public class Module1 {
 //        String testing = scanner.nextLine();
 //        String[] currencies = testing.split(" ");
 //        System.out.println(Arrays.toString(currencies));
+
+        // Determine Square and Multiply Algorithm
+        System.out.print("Please enter the numeber and the power (ex: 13^36 mod 73--> 13 36 73): ");
+        String[] number_input_list = scanner.nextLine().split(" ");
+        int number_input = Integer.parseInt(number_input_list[0]);
+        int power = Integer.parseInt(number_input_list[1]);
+        int mod = Integer.parseInt(number_input_list[2]);
+        ArrayList<ArrayList<Integer>> square_and_multiply = squareAndMultiplyFunction(number_input, power, mod);
+
+        for (int i = 0; i < square_and_multiply.size(); i++) {
+            System.out.println(number_input + "^" + i + " =\t" +
+                    square_and_multiply.get(i).get(1) + " =\t" +
+                    square_and_multiply.get(i).get(2) + "\t(mod "+mod+")");
+        }
 
     }
 }

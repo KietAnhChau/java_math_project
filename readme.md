@@ -17,7 +17,7 @@ This is project math, the content mostly taking from college, Please don't
 	- Determine the (prime_factorization_cal) [DONE]
 		- Using primeFactorizationFunction()
 		> This function determine Prime Factorization of a Composite Number
-		+ Prime factorization of a number is a product of primes with the same value. 
+			+ Prime factorization of a number is a product of primes with the same value. 
 
 	- Determine if the first number is divisible by the second (divisibility_for_number_cal) [not done]
 		> Example:  35457 by 2; No, the last digit is not divisible by 2 (This one not important)
@@ -25,7 +25,7 @@ This is project math, the content mostly taking from college, Please don't
 	- Determine all possible digit replacements for 'x' so that the first number is divisible by the second. [DONE]
 		- Using replaceDivisibilityFunction()
 		> This funtion gonna return a list of number that can replace x and still divisible with n
-		+ Example: 764x88 by 6; will return 764x88 by 6, x ∈ [0, 3, 6, 9]
+			+ Example: 764x88 by 6; will return 764x88 by 6, x ∈ [0, 3, 6, 9]
 
 	- Determine all possible digit replacements for 'x' and 'y' so that the number is divisible by the second [NOT DONE]
 		> Example: 47x9y by 18; 18 --> 2 and 9; y needs to be y ∈ {0, 2, 4, 6, 8} 
@@ -43,7 +43,9 @@ This is project math, the content mostly taking from college, Please don't
 	- Solve each modular equation for whole number solutions [NOT DONE]
 		> Example: 4 + 0 ≡ 4 (mod 7); x ∈ {1, 8, 15, 22, ...} 
 
-	- Square and Multiply Algorithm [NOT DONE]
+	- Square and Multiply Algorithm [DONE]
+		- using squareAndMultiplyFunction()
+		> Example: 13^36 mod 73--> 13 36 73; need to follow number power mod format 
 
 - #### 1.3 Application of Modular Arithmetic
 	- Airline Tickets [NOT DONE]
