@@ -156,13 +156,25 @@ public class Module1 {
         int number_input = Integer.parseInt(number_input_list[0]);
         int power = Integer.parseInt(number_input_list[1]);
         int mod = Integer.parseInt(number_input_list[2]);
+        int sum = 1;
+
+        StringBuilder binary_stringbuilder = new StringBuilder(Integer.toBinaryString(power));
+        List<Integer> binary_list = new ArrayList<>();
         ArrayList<ArrayList<Integer>> square_and_multiply = squareAndMultiplyFunction(number_input, power, mod);
 
-        for (int i = 0; i < square_and_multiply.size(); i++) {
-            System.out.println(number_input + "^" + i + " =\t" +
-                    square_and_multiply.get(i).get(1) + " =\t" +
-                    square_and_multiply.get(i).get(2) + "\t(mod "+mod+")");
+        System.out.println("Decimal to Binary: " +power+ "₁₀ = " +binary_stringbuilder.reverse());
+
+        for (int i = 0; i < binary_stringbuilder.length(); i++) {
+            if (Character.toString(binary_stringbuilder.charAt(i)).equals("1")) binary_list.add((int)Math.pow(2, i));
         }
+        for (ArrayList<Integer> integers : square_and_multiply) {
+            System.out.println(number_input + "^" + integers.get(0) + " =\t" +
+                    integers.get(1) + " =\t" + integers.get(2) + "\t(mod " + mod + ")");
+        }
+        for (ArrayList<Integer> integers : square_and_multiply) {
+            for (Integer integer : binary_list) if (integers.get(0).equals(integer)) sum *= integers.get(2);
+        }
+        System.out.println("---- Ans: " +number_input+ "^"+ power+ " = "+sum+ "\t(mod " + mod + ") -----");
 
     }
 }
