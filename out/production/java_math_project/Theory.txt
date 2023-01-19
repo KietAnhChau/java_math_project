@@ -1,0 +1,25 @@
+
+
+// All theory in module 1
+String prime_number_theory = "A prime number is an integer greater than 1 whose only positive divisors are 1 and itself";
+String composite_number_theory = "A composite number is an integer greater than 1 that is not a prime. " +
+        "It can be written as a product of integers greater than 1.";
+String the_fundamental_theorem_of_arithmetic = "Every integer greater than 1 is either prime or can be expressed as a" +
+        " product of primes in a unique order in which the factors occur";
+String prime_factorization_theory = "Prime factorization of a number is a product of primes with the same value. ";
+String greatest_common_factor_theory = "GCF is the product of all the factors common to both (or to all) numbers.  ";
+String least_common_multiple = "LCM is the smallest number that contains both (or all) numbers as factors.  ";
+
+// To Define and Apply Divisibility Tests
+String divisibility_rule_for_two = "All even numbers are divisible by 2 (the number n finishes at 0, 2, 4, ,6 8)";
+String divisibility_rule_for_three = "A number n, is divisible by 3 only if the sum of its digits is divisible by 3";
+String divisibility_rule_for_four = "A number n, is divisible by 4 only if the last two digits form a number divisible by 4";
+String divisibility_rule_for_five = "A number n, is divisible by 5 only if the number finishes at 0 or 5";
+String divisibility_rule_for_six = "If a number n, is divisible by 2 and 3 at the same time, it is divisible by 6";
+String divisibility_rule_for_seven = "For this rule we need to repeat the following step: \n" +
+        "The last digit doubled and subtracted from the first part of the number n. " +
+        "Repeat the step as necessary. If the last number is divisible by 7 than n is divisible by 7.";
+String divisibility_rule_for_eight = "A number n, is divisible by 8 if the last 3 digits form a number divisible by 8.";
+String divisibility_rule_for_nine = "A number n, is divisible by 9 only if the sum of its digits is divisible by 9";
+String divisibility_rule_for_ten = "A number n, is divisible by 10 only if the number finishes at 0";
+String divisibility_rule_for_eleven = "A number n, is divisible by 11 only if the alternating sum of its digits is divisible by 11";

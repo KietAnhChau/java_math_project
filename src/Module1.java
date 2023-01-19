@@ -15,13 +15,13 @@ public class Module1 {
         // Determine all number is prime number (prime_number_input)
 //        System.out.print("Enter the number you want to check prime (int): ");
 //        long prime_number_input = scanner.nextLong();
-//        List<Long> prime_number_cal = primeNumberFunction(prime_number_input);
+//        List<Long> prime_number_cal = Module1Function.primeNumberFunction(prime_number_input);
 //        System.out.println("The prime for number " + prime_number_input + " is " + prime_number_cal);
 
         // Determine the (prime_factorization_input)
 //        System.out.print("Enter the number you want to determine the Prime Factorization (int): ");
 //        int prime_factorization_input = scanner.nextInt();
-//        System.out.println(primeFactorizationFunction(prime_factorization_input));
+//        System.out.println(Module1Function.primeFactorizationFunction(prime_factorization_input));
 
 
         // Determine if the first number is divisible by the second (divisibility_for_number_input)
@@ -34,7 +34,7 @@ public class Module1 {
 //        System.out.print("Enter the number you want it to divisible (ex: 6): ");
 //        int divisible_input = scanner.nextInt();
 //        System.out.println(replace_divisibility_input + " by " + divisible_input + ", x ∈ "
-//                + replaceDivisibilityFunction(replace_divisibility_input, divisible_input));
+//                + Module1Function.replaceDivisibilityFunction(replace_divisibility_input, divisible_input));
 
         // Determine Greatest Common Factor, GCF (greatest_common_factor_input)
 //        System.out.print("Enter the list of number you want to determine Greatest Common Factor, GCF: ");
@@ -54,7 +54,7 @@ public class Module1 {
         List<Integer> binary_list = new ArrayList<>();
         ArrayList<ArrayList<Integer>> square_and_multiply = Module1Function.squareAndMultiplyFunction(number_input, power, mod);
 
-        System.out.println("Decimal to Binary: " +power+ "₁₀ = " +binary_stringbuilder.reverse());
+        System.out.println("Decimal to Binary: " +power+ "₁₀ = " +binary_stringbuilder.reverse()+"₂");
 
         for (int i = 0; i < binary_stringbuilder.length(); i++) {
             if (Character.toString(binary_stringbuilder.charAt(i)).equals("1")) binary_list.add((int)Math.pow(2, i));
@@ -69,6 +69,7 @@ public class Module1 {
         System.out.println("---- Ans: " +number_input+ "^"+ power+ " = "+sum+ "\t(mod " + mod + ") -----");
 
         // Airline, SIN, UPC, ISBN checker
+
 
 
 
